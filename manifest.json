@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "version": "1.2",
+  "name": "LionPath Express",
+  "description": "For Better Using Lionpath and Schedule Builder.",
+  "icons": { 
+    "16": "icon/hourglass16.png",
+    "32": "icon/hourglass32.png",
+    "64": "icon/hourglass64.png",
+    "128": "icon/hourglass128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false,
+    "run_at": "document_end"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.lionpath.psu.edu/psp/CSPRD/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES_2.SSS_MY_CRSEHIST.*"],
+      "js": ["js/ch_content_script.js"]
+    }        
+  ],
+  "browser_action": {
+    "default_icon": "icon/icon.png"
+  },
+  "permissions": ["tabs", "<all_urls>", "activeTab", "*://*/*"]
+}
